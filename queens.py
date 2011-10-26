@@ -180,3 +180,6 @@ def main(num_queens):
     placed = [Coord(None,None) for count in range(num_queens)]
     placeQueen(placed, 0)
     displayBoard(placed)
+
+if __name__ == '__main__':
+    main(8)
