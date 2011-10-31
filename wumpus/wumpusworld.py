@@ -1,7 +1,3 @@
-class Agent:
-    actions 
-    def __init__(initialKB):
-        pass
 
 BREEZY,STENCH,GLITER,SCREAM,BUMP,NUM_PERCEPTS = 0,1,2,3,4,5
 TURN_LEFT,TURN_RIGHT,ADVANCE,SHOOT = 0,1,2,3
