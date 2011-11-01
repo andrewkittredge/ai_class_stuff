@@ -11,7 +11,7 @@ class Hybrid_Wumpus_Agent(object):
         self.knowledge_base = knowledge_base
         self.time = 0
         
-    def __action__(self, percept):
+    def action(self, percept):
         self.knowledge_base.tell(make_percept_sentence(percept, self.time))
         safe = self.knowledge_base.ask('ok x, y time = t')
         if self.knowledge_base.ask('glitter time=t'):
@@ -34,4 +34,16 @@ class Hybrid_Wumpus_Agent(object):
         self.knowledge_base.tell(?.make_action_sentence(action, t))
         self.time += 1
         return action
+    
+    
+def plan_route(current, goals, allowed):
+    '''
+    inputs: current, the agent's current position
+    goals: a set of squares; try to plan a route to one of them.
+    allowed: a set of squares that can form part of the route.
+    returns: an action sequence
+    '''
+    
+    problem = route_problem(current, goals, allowed)
+    return a_star_graph_search(problem)
             
