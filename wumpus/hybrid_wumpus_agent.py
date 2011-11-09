@@ -21,7 +21,7 @@ class Hybrid_Wumpus_Agent(object):
             for coord in world.all_coords:
                 if not any(self.knowledge_base.ask(coord, t) for t in range(self.time)):
                     unvisited.add(coord)
-            plan = ?.plan_route(current, unvisited + safe, safe)
+            plan = ?.plan_route(current, unvisited & safe, safe)
         if not plan and self.knowledge_base('Have Arrow', self.time):
             possible_wumpus = (coord for coord in world.all_cords if not self.knowledge_base.ask('not wumpus'))
             plan = ?.plan_shot(current, possible_wumpus, safe)

@@ -10,18 +10,19 @@ from exceptions import NotImplementedError
 class KnowledgeBase(object):
     def __init__(self, world):
         self.knowledge = {}
-        self.world = world
         
     def ask_ok(self, ok_coord, time):
         for coord in neighboring_coords(ok_coord):
             for t in range(t):
-                percept = (coord, t)
-                previous_percept = self.knowledge.get(percept)
+                percept = (coord, time)
+                previous_percept = self.knowledge.get(percept, None)
                 safe = (previous_percept and STENCH not in previous_percept and BREEZY not in previous_percept)
                 if safe:
-                    return True 
+                    return True
         return False
             
+    def ask_not_ok(self, not_ok_coord, time):
+        
     def ask_visited(self, coord, t):
         return (coord, t) in self.knowledge
     
